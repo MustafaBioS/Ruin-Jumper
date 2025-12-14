@@ -12,9 +12,6 @@ public class Player : MonoBehaviour
     [SerializeField] float sensitivity = 1000;
     [SerializeField] float jumpHeight = 1.2f;
     [SerializeField] float gravity = -20f;
-
-    [Header("Options")]
-
     Vector3 velocity;
     bool grounded;
     bool jumping;

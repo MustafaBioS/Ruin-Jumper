@@ -3,7 +3,7 @@ using UnityEngine;
 public class CrateControls : MonoBehaviour
 {
     [SerializeField] float rotateSpeed = 0.5f;
-    [SerializeField] AudioSource gemCollect;
+    [SerializeField] AudioSource crateCollect;
 
     void Update()
     {
@@ -12,7 +12,7 @@ public class CrateControls : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        gemCollect.Play();
+        crateCollect.Play();
         Destroy(gameObject);
     }
 }
