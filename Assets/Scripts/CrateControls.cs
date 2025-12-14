@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class CrateControls : MonoBehaviour
 {
     [SerializeField] float rotateSpeed = 0.5f;
     [SerializeField] AudioSource gemCollect;
