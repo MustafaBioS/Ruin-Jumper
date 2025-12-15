@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     [Header("References")]
     [SerializeField] CharacterController controller;
     [SerializeField] GameObject active;
+    [SerializeField] Transform cam;
 
     [Header("Movement")]
     [SerializeField] float speed = 6.5f;
@@ -16,6 +17,10 @@ public class Player : MonoBehaviour
     bool grounded;
     bool jumping;
     Animator animator;
+
+    float RotateX = 0f;
+    [SerializeField] float minPitch = -85f;
+    [SerializeField] float maxPitch = 85f;
 
     void Awake()
     {
@@ -47,13 +52,22 @@ public class Player : MonoBehaviour
         }
 
         float mouseX = Input.GetAxis("Mouse X");
-        transform.Rotate(0f, mouseX * sensitivity * Time.deltaTime, 0f);
+        float mouseY = Input.GetAxis("Mouse Y");
+
+        transform.Rotate(Vector3.up * (mouseX * sensitivity * Time.deltaTime));
+
+        if (cam != null)
+        {
+            RotateX -= mouseY * sensitivity * Time.deltaTime;
+            RotateX = Mathf.Clamp(RotateX, minPitch, maxPitch);
+            cam.localRotation = Quaternion.Euler(RotateX, 0f, 0f);
+        }
 
         float inputX = Input.GetAxis("Horizontal");
         float inputZ = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * inputX + transform.forward * inputZ;
-        move *= speed;
+        move = move.normalized * speed;
 
         if (Input.GetButtonDown("Jump") && grounded)
         {
