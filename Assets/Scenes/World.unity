@@ -1246,7 +1246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e4a9a02ef11138f489ed5f3e3a079c93, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.8400002
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e4a9a02ef11138f489ed5f3e3a079c93, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1685,7 +1685,7 @@ GameObject:
   - component: {fileID: 1533240902}
   - component: {fileID: 1533240901}
   - component: {fileID: 1533240900}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1854,10 +1854,17 @@ MonoBehaviour:
   cam: {fileID: 330585546}
   speed: 6.5
   sensitivity: 1000
-  jumpHeight: 1.2
-  gravity: 0
+  jumpHeight: 22.5
+  gravity: -9.81
+  grounded: 0
+  jumping: 0
   minPitch: -85
   maxPitch: 85
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 8
+  checkRadiusMultiplier: 0.9
+  debugSphereDuration: 0.02
 --- !u!4 &1830641545 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e4a9a02ef11138f489ed5f3e3a079c93, type: 3}
