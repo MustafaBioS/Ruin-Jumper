@@ -10,9 +10,9 @@ public class Player : MonoBehaviour
     [SerializeField] Transform cam;
 
     [Header("Movement")]
-    [SerializeField] float speed = 12.5f;
+    [SerializeField] float speed = 10;
     [SerializeField] float sensitivity = 1000f;
-    [SerializeField] float jumpHeight = 2.5f;
+    [SerializeField] float jumpHeight = 1.8f;
     [SerializeField] float gravity = -20f;
     Vector3 velocity;
     [SerializeField] bool grounded;
@@ -74,7 +74,6 @@ public class Player : MonoBehaviour
 
         if (grounded && velocity.y < 0f)
         {
-            move *= 0.5f;
             velocity.y = -2f;
             jumping = false;
         }

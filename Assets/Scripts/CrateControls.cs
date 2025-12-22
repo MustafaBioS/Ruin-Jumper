@@ -4,6 +4,7 @@ public class CrateControls : MonoBehaviour
 {
     [SerializeField] float rotateSpeed = 0.5f;
     [SerializeField] AudioSource crateCollect;
+    [SerializeField] int crateScore = 100;
 
     void Update()
     {
@@ -13,6 +14,7 @@ public class CrateControls : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         crateCollect.Play();
-        Destroy(gameObject);
+        Destroy(gameObject);    
+        Score.score += crateScore;
     }
 }
