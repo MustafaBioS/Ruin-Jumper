@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
             jumping = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && grounded)
+        if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
             jumping = true;
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
