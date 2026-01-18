@@ -8262,6 +8262,7 @@ MonoBehaviour:
   fadeOut: {fileID: 781202548}
   timeUp: {fileID: 499564762}
   playerControl: {fileID: 1830641540}
+  isRespawning: 0
 --- !u!1 &852847056293513
 GameObject:
   m_ObjectHideFlags: 0
