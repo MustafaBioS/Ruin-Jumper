@@ -8,6 +8,9 @@ public class Player : MonoBehaviour
     [SerializeField] CharacterController controller;
     [SerializeField] GameObject active;
     [SerializeField] Transform cam;
+    [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject overlay;
+    [SerializeField] public static bool paused = false;
 
     [Header("Movement")]
     [SerializeField] float speed = 10;
@@ -38,6 +41,8 @@ public class Player : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        pauseMenu.SetActive(false);
+        overlay.SetActive(false);
     }
 
     void Update()
@@ -59,26 +64,30 @@ public class Player : MonoBehaviour
 
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
-        transform.Rotate(Vector3.up * (mouseX * sensitivity * Time.deltaTime));
-        if (cam != null)
+        
+        if (cam != null && paused == false)
         {
+            transform.Rotate(Vector3.up * (mouseX * sensitivity * Time.deltaTime));
+
             RotateX -= mouseY * sensitivity * Time.deltaTime;
             RotateX = Mathf.Clamp(RotateX, minPitch, maxPitch);
             cam.localRotation = Quaternion.Euler(RotateX, 0f, 0f);
         }
 
+
         float inputX = Input.GetAxis("Horizontal");
         float inputZ = Input.GetAxis("Vertical");
         Vector3 move = transform.right * inputX + transform.forward * inputZ;
         move = move.normalized * speed;
+        
 
-        if (grounded && velocity.y < 0f)
+        if (grounded && velocity.y < 0f && paused == false)
         {
             velocity.y = -2f;
             jumping = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && grounded)
+        if (Input.GetKeyDown(KeyCode.Space) && grounded && paused == false)
         {
             jumping = true;
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
@@ -87,8 +96,12 @@ public class Player : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
 
-        Vector3 total = move + Vector3.up * velocity.y;
-        controller.Move(total * Time.deltaTime);
+        if (paused == false)
+        {
+            Vector3 total = move + Vector3.up * velocity.y;
+            controller.Move(total * Time.deltaTime);
+        }
+
 
         if (!jumping && animator != null)
         {
@@ -97,6 +110,28 @@ public class Player : MonoBehaviour
             else
                 animator.Play("Idle");
         }
+
+        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (paused == false)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                overlay.SetActive(true);
+                pauseMenu.SetActive(true);
+                paused = true;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                overlay.SetActive(false);
+                pauseMenu.SetActive(false);
+                paused = false;
+            }
+
+        }
+
     }
 
     IEnumerator ResetJump()

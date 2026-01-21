@@ -9,16 +9,6 @@ public class Menu : MonoBehaviour
     [SerializeField] GameObject fadeOut;
     [SerializeField] GameObject optionsPanel;
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
     public void StartGame()
     {
         buttonPress.Play();
@@ -28,16 +18,19 @@ public class Menu : MonoBehaviour
 
     public void OpenPanel()
     {
+        buttonPress.Play();
         optionsPanel.SetActive(true);
     }
 
     public void ClosePanel()
     {
+        buttonPress.Play();
         optionsPanel.SetActive(false);
     }
 
     public void QuitGame()
     {
+        buttonPress.Play();
         Application.Quit();
     }
 
