@@ -51,6 +51,6 @@ public class Timer : MonoBehaviour
     IEnumerator Screen()
     {
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(2);
     }
 }

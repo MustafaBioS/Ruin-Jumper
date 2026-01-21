@@ -19,20 +19,18 @@ public class WinCrate : MonoBehaviour
     {
         if (triggered) return;
 
-        if (triggered) return;
-
         if (other.CompareTag("Player"))
         {
             triggered = true;
             StartCoroutine(Collapse());
-        }
 
-        playerControl.GetComponent<Player>().enabled = false;
-        playerControl.GetComponent<Animator>().Play("Idle");
-        levelBGM.SetActive(false);
-        levelSFX.Play();
-        fadeOut.SetActive(true);
-        SceneManager.LoadScene(3);
+            playerControl.GetComponent<Player>().enabled = false;
+            playerControl.GetComponent<Animator>().Play("Idle");
+            levelBGM.SetActive(false);
+            levelSFX.Play();
+            fadeOut.SetActive(true);
+            SceneManager.LoadScene(3);
+        }
     }
 
     IEnumerator Collapse()
