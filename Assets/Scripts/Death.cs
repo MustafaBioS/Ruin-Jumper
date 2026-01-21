@@ -24,6 +24,6 @@ public class Death : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         Score.score = 0;
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(1);
     }
 }

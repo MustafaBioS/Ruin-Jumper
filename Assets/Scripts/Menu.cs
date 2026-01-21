@@ -7,6 +7,7 @@ public class Menu : MonoBehaviour
 
     [SerializeField] AudioSource buttonPress;
     [SerializeField] GameObject fadeOut;
+    [SerializeField] GameObject optionsPanel;
 
     void Start()
     {
@@ -25,6 +26,16 @@ public class Menu : MonoBehaviour
         StartCoroutine(PlayGame());  
     }
 
+    public void OpenPanel()
+    {
+        optionsPanel.SetActive(true);
+    }
+
+    public void ClosePanel()
+    {
+        optionsPanel.SetActive(false);
+    }
+
     public void QuitGame()
     {
         Application.Quit();
@@ -33,6 +44,6 @@ public class Menu : MonoBehaviour
     IEnumerator PlayGame()
     {
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(2);
     }
 }

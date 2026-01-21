@@ -12,6 +12,6 @@ public class Respawn : MonoBehaviour
     IEnumerator Screen()
     {
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(2);
     }
 }
