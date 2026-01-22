@@ -21,7 +21,7 @@ public class Timer : MonoBehaviour
     void Update()
     {
         timeBox.GetComponent<TMPro.TMP_Text>().text = "Time Left: " + timeLeft;
-        if (takingSecond == false) 
+        if (takingSecond == false && Player.paused == false) 
         {
             StartCoroutine(RemoveSecond());
         }

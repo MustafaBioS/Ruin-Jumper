@@ -10,6 +10,11 @@ public class Pause : MonoBehaviour
     [SerializeField] GameObject overlay;
     [SerializeField] GameObject pauseMenu;
     
+    void Start()
+    {
+        optionsPanel.SetActive(false);
+    }
+
     public void ResumeGame()
     {
         buttonPress.Play();

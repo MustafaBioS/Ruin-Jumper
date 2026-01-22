@@ -9,6 +9,11 @@ public class Menu : MonoBehaviour
     [SerializeField] GameObject fadeOut;
     [SerializeField] GameObject optionsPanel;
 
+    void Start()
+    {
+        optionsPanel.SetActive(false);
+    }
+
     public void StartGame()
     {
         buttonPress.Play();
