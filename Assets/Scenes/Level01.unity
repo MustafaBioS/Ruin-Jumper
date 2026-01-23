@@ -2304,7 +2304,6 @@ GameObject:
   - component: {fileID: 1003422271}
   - component: {fileID: 1003422270}
   - component: {fileID: 1003422269}
-  - component: {fileID: 1003422268}
   - component: {fileID: 1003422272}
   m_Layer: 0
   m_Name: Crate (2)
@@ -2329,21 +2328,6 @@ Transform:
   - {fileID: 534661851}
   m_Father: {fileID: 1574920307}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1003422268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1003422266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb982b854044fdd4ca4a28b961f22b7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
-  rotateSpeed: 0.5
-  crateCollect: {fileID: 694684150}
-  crateScore: 100
 --- !u!65 &1003422269
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6412,6 +6396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Score
   scoreBox: {fileID: 6519351729067817442}
+  winBox: {fileID: 0}
 --- !u!114 &2143073417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47230,6 +47215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Score
   scoreBox: {fileID: 0}
+  winBox: {fileID: 0}
 --- !u!1 &5004773377956770092
 GameObject:
   m_ObjectHideFlags: 0

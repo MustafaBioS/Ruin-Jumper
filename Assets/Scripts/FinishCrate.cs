@@ -30,7 +30,7 @@ public class FinishCrate : MonoBehaviour
 
     IEnumerator Anim()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSecondsRealtime(2);
         SceneManager.LoadScene(0);
     }
 }

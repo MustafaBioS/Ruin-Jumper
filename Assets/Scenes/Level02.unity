@@ -1499,7 +1499,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinCrate
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1147580552115241310, guid: 2a9d215af2c232f41ae7fb92bb280ff8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -2275,7 +2276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &558492205
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10538,7 +10539,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!225 &4468161779715688612
 CanvasGroup:
   m_ObjectHideFlags: 0
